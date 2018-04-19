@@ -15,7 +15,12 @@ class Enemy {
         // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
         // all computers.
-        
+       this.x += this.speed * dt;
+
+       if(this.x > 500){
+           this.x = -100;
+       }
+
     }
     // Draw the enemy on the screen, required method for game
     render() {
@@ -31,6 +36,9 @@ class Enemy {
 class Player extends Enemy {
     constructor(x, y, speed = 0, sprite = 'images/char-horn-girl.png') {
         super(x, y, speed, sprite);
+    }
+    update(dt) {
+        //Override the parent's function so the player won't
     }
 
     handleInput(key) {
