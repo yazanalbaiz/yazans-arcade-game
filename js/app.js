@@ -22,6 +22,9 @@ class Enemy {
         //Checks if the enemy has left the cobblestones and resets them
         if(this.x > 500){
             this.x = -100;
+            //Change the speed randomly each time
+            //Math.ceil proved to be better than floor which is the norm
+            this.speed = Math.ceil(Math.random() * this.speed) + 100;
         }
 
     }
