@@ -15,11 +15,14 @@ class Enemy {
         // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
         // all computers.
-       this.x += this.speed * dt;
 
-       if(this.x > 500){
-           this.x = -100;
-       }
+        //Moves the enemy according to the speed 
+        this.x += this.speed * dt;
+
+        //Checks if the enemy has left the cobblestones and resets them
+        if(this.x > 500){
+            this.x = -100;
+        }
 
     }
     // Draw the enemy on the screen, required method for game
@@ -32,7 +35,9 @@ class Enemy {
 
 // Now write your own player class
 // This class requires an update(), render() and
-// a handleInput() method.
+// a handleInput() method
+
+//The Player class is a subclass of Enemy since it shares most it's props and methods
 class Player extends Enemy {
     constructor(x, y, speed = 0, sprite = 'images/char-horn-girl.png') {
         super(x, y, speed, sprite);
@@ -41,6 +46,7 @@ class Player extends Enemy {
         //Override the parent's function so the player won't
     }
 
+    //Moves the player according to the key pressed and doesn't if it'll leave canvas
     handleInput(key) {
         if(key === 'left') {
             if(this.x > 2){
@@ -68,7 +74,9 @@ class Player extends Enemy {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-const enemyYs = [63,147,230];
+
+//Enemy starting locations are 80 Ys apart
+const enemyYs = [60, 145, 230];
 let i = 0;
 const allEnemies = enemyYs.map(y => {
     let e = new Enemy(0, y, 200);
@@ -91,6 +99,10 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 
+    // Winning the game
+    /* TO-DO:
+    * - Move to a function.
+    */
     if(player.y === -60){
         setTimeout(() => {
             player.y = 390;
