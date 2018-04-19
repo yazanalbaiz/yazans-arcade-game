@@ -1,5 +1,5 @@
 class Enemy {
-    constructor(x, y, speed) {
+    constructor(x, y, speed, sprite = 'images/enemy-bug.png') {
         // Variables applied to each of our instances go here,
         // we've provided one for you to get started
         // The image/sprite for our enemies, this uses
@@ -7,7 +7,7 @@ class Enemy {
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.sprite = 'images/enemy-bug.png';
+        this.sprite = sprite;
     }
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
@@ -29,26 +29,27 @@ class Enemy {
 // This class requires an update(), render() and
 // a handleInput() method.
 class Player extends Enemy {
-    constructor(x, y, sprite = 'images/char-horn-girl.png') {
-        super(x, y, sprite);
+    constructor(x, y, speed = 0, sprite = 'images/char-horn-girl.png') {
+        super(x, y, speed, sprite);
     }
 
     handleInput(key) {
-
+        
     }
 }
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 const enemyYs = [63,147,230];
 let i = 0;
 const allEnemies = enemyYs.map(y => {
-    let e = new Enemy(200, y, 200);
+    let e = new Enemy(0, y, 200);
     return e;
 });
 i = 0;
 // Place the player object in a variable called player
-const player = new Player();
+const player = new Player(202, 390);
 
 
 // This listens for key presses and sends the keys to your
