@@ -34,7 +34,26 @@ class Player extends Enemy {
     }
 
     handleInput(key) {
-        
+        if(key === 'left') {
+            if(this.x > 2){
+                this.x -= 100;
+            }
+        }
+        else if(key === 'up') {
+            if(this.y > -60){
+                this.y -= 90;
+            }
+        }
+        else if(key === 'right') {
+            if(this.x < 402) {
+                this.x += 100;
+            }
+        }
+        else if(key === 'down') {
+            if(this.y < 390) {
+                this.y += 90;
+            }
+        }
     }
 }
 
@@ -63,4 +82,11 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
+
+    if(player.y === -60){
+        setTimeout(() => {
+            player.y = 390;
+            player.x = 202;
+        }, 500);
+    }
 });
