@@ -58,7 +58,7 @@ class Player extends Enemy {
         }
         else if(key === 'up') {
             if(this.y > -60){
-                this.y -= 90;
+                this.y -= 85;
             }
         }
         else if(key === 'right') {
@@ -68,7 +68,7 @@ class Player extends Enemy {
         }
         else if(key === 'down') {
             if(this.y < 390) {
-                this.y += 90;
+                this.y += 85;
             }
         }
     }
@@ -87,7 +87,7 @@ const allEnemies = enemyYs.map(y => {
 });
 i = 0;
 // Place the player object in a variable called player
-const player = new Player(202, 390);
+const player = new Player(202, 400);
 
 
 // This listens for key presses and sends the keys to your
@@ -106,9 +106,9 @@ document.addEventListener('keyup', function(e) {
     /* TO-DO:
     * - Move to a function.
     */
-    if(player.y === -60){
+    if(player.y === -25){
         setTimeout(() => {
-            player.y = 390;
+            player.y = 400;
             player.x = 202;
         }, 500);
     }
