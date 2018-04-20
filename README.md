@@ -1,3 +1,5 @@
+![Udacity Logo](images/udacity-logo.png)
+
 Yazan's Arcade Game
 ===============================
 For my third project at Udacity, I was asked to recreate the classic arcade game "Frogger" from a given game engine and sprites.
