@@ -1,3 +1,23 @@
 body {
     text-align: center;
 }
+
+#status, #score-heading {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#score-heading {
+    color: rgb(145, 52, 233);
+}
+
+#score-span {
+    color: rgb(240, 160, 39);
+}
+
+.won {
+    color: rgb(52, 207, 52);
+}
+
+.lost {
+    color: rgb(153, 35, 35);
+}
