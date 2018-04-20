@@ -145,6 +145,6 @@ document.addEventListener('keyup', function(e) {
 
     // Winning the game
     if(player.y === -25){
-        player.resetGame(500, 'won');
+        player.resetGame(150, 'won');
     }
 });
