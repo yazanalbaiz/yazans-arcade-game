@@ -1,6 +1,25 @@
-frontend-nanodegree-arcade-game
+Yazan's Arcade Game
 ===============================
+For my third project at Udacity, I was asked to recreate the classic arcade game "Frogger" from a given game engine and sprites.
+I used the skills I learned from the Front-End Nano Degree to build the given resources into a functioning game.
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+-----
+## Usage
+- Clone or Download the repository.
+- Run `index.html` in your browser.
+- Play the game :)
+-----
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## How to Play:
+- Move your character with the arrow keys.
+- Reach the water to win.
+- If you hit a bug, you lose.
+-----
+
+## Dependancies
+- HTML5.
+- CSS3.
+- ES6.
+-----
+
+
