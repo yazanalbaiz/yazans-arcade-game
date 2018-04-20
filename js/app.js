@@ -29,7 +29,7 @@ class Enemy {
         //Collision test after every update
         if(this.y === player.y){
             if(this.x > player.x - 50 && this.x < player.x + 50){  
-                player.resetGame(100);
+                player.resetGame(100, 'loss');
             }
         }
 
@@ -50,6 +50,7 @@ class Enemy {
 class Player extends Enemy {
     constructor(x, y, speed = 0, sprite = 'images/char-horn-girl.png') {
         super(x, y, speed, sprite);
+        this.score = 0;
     }
     update(dt) {
         //Override the parent's function so the player won't
@@ -79,11 +80,35 @@ class Player extends Enemy {
         }
     }
     //Resets the position of the player when called after an offset 'ms'
-    resetGame(ms) {
+    resetGame(ms, status) {
         setTimeout(() => {
             this.y = 400;
             this.x = 202;
         }, ms);
+        if(status === 'loss'){
+            this.score =0;
+
+            document.getElementById('score-span').innerHTML = this.score;
+            document.getElementById('status').classList.remove('won');
+            document.getElementById('status').classList.add('lost');
+            document.getElementById('status').innerHTML = 'You lost >:(';
+
+            setTimeout(() => {
+                document.getElementById('status').innerHTML = '';
+            }, 1000);
+        }
+        else if(status === 'won'){
+            this.score++;
+
+            document.getElementById('score-span').innerHTML = this.score;
+            document.getElementById('status').classList.remove('lost');
+            document.getElementById('status').classList.add('won');
+            document.getElementById('status').innerHTML = 'You won :)';
+
+            setTimeout(() => {
+                document.getElementById('status').innerHTML = '';
+            }, 1000);
+        }
     }
 
 }
@@ -104,6 +129,8 @@ i = 0;
 const player = new Player(202, 400);
 
 
+
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
@@ -118,6 +145,6 @@ document.addEventListener('keyup', function(e) {
 
     // Winning the game
     if(player.y === -25){
-        player.resetGame(500);
+        player.resetGame(500, 'won');
     }
 });
