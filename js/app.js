@@ -26,6 +26,12 @@ class Enemy {
             //Math.ceil proved to be better than floor which is the norm
             this.speed = Math.ceil(Math.random() * this.speed) + 100;
         }
+        //Collision test after every update
+        if(this.y === player.y){
+            if(this.x > player.x - 50 && this.x < player.x + 50){  
+                player.resetGame(100);
+            }
+        }
 
     }
     // Draw the enemy on the screen, required method for game
@@ -72,6 +78,14 @@ class Player extends Enemy {
             }
         }
     }
+    //Resets the position of the player when called after an offset 'ms'
+    resetGame(ms) {
+        setTimeout(() => {
+            this.y = 400;
+            this.x = 202;
+        }, ms);
+    }
+
 }
 
 
@@ -103,13 +117,7 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 
     // Winning the game
-    /* TO-DO:
-    * - Move to a function.
-    */
     if(player.y === -25){
-        setTimeout(() => {
-            player.y = 400;
-            player.x = 202;
-        }, 500);
+        player.resetGame(500);
     }
 });
